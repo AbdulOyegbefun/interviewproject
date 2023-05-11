@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+import os
 import pickle
 app = Flask(__name__)
 
@@ -65,5 +66,5 @@ def tdidt_classifier(tree, header, instance):
 
 
 if __name__ == "__main__":
-    
-    app.run(debug=True)
+    port = os.environ.get("PORT", 5000)
+    app.run(debug=False, host="0.0.0.0",port=port)
